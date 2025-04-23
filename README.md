@@ -117,7 +117,8 @@ anime_map = {aid: idx for idx, aid in enumerate(valid_ratings['anime_id'].unique
 ID pengguna dan anime dimapping ke bentuk numerik untuk digunakan dalam algoritma berbasis matriks.
 
 ## 11. Normalisasi Rating:
-```valid_ratings['normalized'] = valid_ratings['rating'].apply(lambda r: (r - rmin) / (rmax - rmin))
+```
+valid_ratings['normalized'] = valid_ratings['rating'].apply(lambda r: (r - rmin) / (rmax - rmin))
 ```
 Rating dinormalisasi ke rentang 0-1 untuk memperlancar proses pembelajaran model.
 
