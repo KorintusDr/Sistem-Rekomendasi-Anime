@@ -47,7 +47,7 @@ Dataset yang digunakan dalam proyek ini berasal dari [Anime Recommendations Data
 
 Berdasarkan hasil pengecekan data, kondisi data anime adalah:
 
-- **Missing Values**: Terdapat nilai yang hilang pada beberapa kolom, seperti pada kolom `type`, yang berarti jenis anime tidak diketahui untuk beberapa entri.
+- **Missing Values**: Terdapat nilai yang hilang pada beberapa kolom, seperti pada kolom `type`.
 - **Tipe Data**: Terdapat tipe data yang tidak sesuai pada kolom `episodes`.
 - **Duplikat**: Data anime bebas dari duplikat, sehingga setiap anime diidentifikasi secara unik dengan `anime_id`.
 
@@ -55,8 +55,8 @@ Berdasarkan hasil pengecekan data, kondisi data anime adalah:
 
 Berdasarkan hasil pengecekan data, kondisi data rating sebagai berikut:
 
-- **Missing Values**: Terdapat missing pada kolom `rating`, yang perlu diperhatikan saat analisis lebih lanjut.
-- **Nilai Rating -1**: Sebanyak 633,459 entri memiliki rating -1.0, yang menunjukkan bahwa pengguna belum memberikan rating pada anime tersebut. Data ini perlu dihapus agar tidak mengganggu proses model rekomendasi.
+- **Missing Values**: Terdapat missing pada kolom `rating`, yang perlu diatasi.
+- **Nilai Rating -1**: Sebanyak 633,459 entri memiliki rating -1.0, menunjukkan bahwa pengguna belum memberikan rating pada anime tersebut. Data ini perlu dihapus agar tidak mengganggu proses model rekomendasi.
 - **Duplikat**: Terdapat beberapa entri duplikat pada data rating, yang perlu dibersihkan agar data lebih akurat dan tidak terjadi pengulangan informasi.
 
 ---
@@ -129,7 +129,10 @@ X_train, X_test, y_train, y_test = train_test_split(X_matrix, y_vector, test_siz
 ```
 Dataset dibagi menjadi data pelatihan dan data pengujian (80% untuk pelatihan, 20% untuk pengujian). 
 
+---
 
+# 🤖 Modeling
+Model yang digunakan:
 
 
 
