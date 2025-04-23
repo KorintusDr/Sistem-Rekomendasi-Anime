@@ -57,7 +57,7 @@ Berdasarkan hasil pengecekan data, kondisi data rating sebagai berikut:
 
 - **Missing Values**: Terdapat missing pada kolom `rating`, yang perlu diatasi.
 - **Nilai Rating -1**: Sebanyak 633,459 entri memiliki rating -1.0, menunjukkan bahwa pengguna belum memberikan rating pada anime tersebut. Data ini perlu dihapus agar tidak mengganggu proses model rekomendasi.
-- **Duplikat**: Terdapat beberapa entri duplikat pada data rating, yang perlu dibersihkan agar data lebih akurat dan tidak terjadi pengulangan informasi.
+- **Duplikat**: Terdapat beberapa entri duplikat pada data rating, yang perlu dibersihkan agar tidak terjadi pengulangan informasi.
 
 ---
 
