@@ -1,5 +1,28 @@
 # 📺 Project Overview
+
 Industri hiburan Jepang, khususnya anime, mengalami pertumbuhan signifikan dalam dekade terakhir. Dengan ribuan judul yang tersedia dan terus bertambah setiap tahun, pengguna sering kali kesulitan untuk menemukan anime yang sesuai dengan preferensi mereka. Sistem rekomendasi dapat membantu pengguna menemukan anime yang relevan secara personal, meningkatkan pengalaman pengguna dan memperpanjang waktu keterlibatan mereka dalam platform.
+
+---
+
+# 💼 Business Understanding
+
+## Problem Statements:
+- Pengguna kesulitan menemukan anime yang sesuai dengan preferensinya karena terlalu banyak pilihan.
+- Platform tidak memiliki sistem yang memberikan rekomendasi berdasarkan perilaku pengguna atau konten.
+
+## Goals:
+- Mengembangkan sistem rekomendasi anime yang personal berbasis preferensi pengguna.
+- Mengimplementasikan dan membandingkan beberapa pendekatan sistem rekomendasi untuk meningkatkan akurasi hasil rekomendasi.
+
+## Solution Approach:
+Solusi 1: Content-Based Filtering
+Merekomendasikan anime berdasarkan kesamaan genre, studio, atau fitur lain dengan anime yang disukai pengguna.
+
+Solusi 2: Collaborative Filtering
+Menggunakan informasi rating pengguna lain yang memiliki kesamaan preferensi untuk memberikan rekomendasi.
+
+Solusi 3: Hybrid System
+Menggabungkan content-based dan collaborative untuk mengatasi kelemahan masing-masing pendekatan.
 
 ---
 
@@ -20,33 +43,3 @@ Contoh isi:
 
 ---
 
-## 🧠 Algoritma
-
-Sistem ini menggunakan pendekatan **Content-Based Filtering**, yaitu merekomendasikan anime lain yang memiliki **kemiripan konten** (genre) dengan anime pilihan pengguna.
-
-### 🔎 TF-IDF Vectorization
-
-Setiap genre diubah menjadi representasi vektor menggunakan **TF-IDF (Term Frequency-Inverse Document Frequency)**:
-
-- Menangkap pentingnya kata (genre) dalam konteks dokumen (anime).
-- Mengabaikan kata-kata umum (stop words) agar hasil lebih relevan.
-
-### 📐 Cosine Similarity
-
-Kemiripan antar anime dihitung menggunakan **cosine similarity**, yang mengukur sudut antar dua vektor.
-
-\[
-\text{Cosine Similarity} = \frac{A \cdot B}{\|A\| \|B\|}
-\]
-
-Nilai cosine similarity berkisar antara 0 (tidak mirip) hingga 1 (identik).
-
----
-
-## ⚙️ Instalasi dan Penggunaan
-
-### 1. Clone Repository
-
-```bash
-git clone https://github.com/username/anime-recommender.git
-cd anime-recommender
