@@ -15,14 +15,9 @@ Industri hiburan Jepang, khususnya anime, mengalami pertumbuhan signifikan dalam
 - Mengimplementasikan dan membandingkan beberapa pendekatan sistem rekomendasi untuk meningkatkan akurasi hasil rekomendasi.
 
 ## Solution Approach:
-Solusi 1: Content-Based Filtering
-Merekomendasikan anime berdasarkan kesamaan genre, studio, atau fitur lain dengan anime yang disukai pengguna.
+- Content-Based Filtering (CBF) adalah pendekatan rekomendasi yang digunakan untuk merekomendasikan anime yang serupa dengan anime yang sudah disukai oleh pengguna. Pendekatan ini memanfaatkan atribut konten seperti genre, tema, alur cerita, karakteristik karakter, dan elemen-elemen lain dari anime tersebut untuk menemukan anime lain yang memiliki kesamaan. Sistem ini digunakan dalam proyek ini untuk memberikan rekomendasi yang lebih personal dan relevan bagi pengguna, berdasarkan apa yang sudah mereka sukai sebelumnya.
+- Collaborative Filtering (CF) adalah pendekatan yang digunakan untuk memberikan rekomendasi berdasarkan perilaku pengguna lain yang memiliki preferensi serupa. Pendekatan ini memanfaatkan data rating atau interaksi pengguna lain untuk memperkirakan anime yang mungkin disukai oleh pengguna berdasarkan kesamaan dalam preferensi mereka. Dalam proyek ini, CF digunakan untuk memperkaya sistem rekomendasi dengan memberikan rekomendasi berdasarkan tren yang ditemukan di antara komunitas pengguna.
 
-Solusi 2: Collaborative Filtering
-Menggunakan informasi rating pengguna lain yang memiliki kesamaan preferensi untuk memberikan rekomendasi.
-
-Solusi 3: Hybrid System
-Menggabungkan content-based dan collaborative untuk mengatasi kelemahan masing-masing pendekatan.
 
 ---
 
