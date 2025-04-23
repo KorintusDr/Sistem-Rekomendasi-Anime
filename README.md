@@ -63,65 +63,65 @@ Berdasarkan hasil pengecekan data, kondisi data rating sebagai berikut:
 # 🧹 Data Preprocessing
 Dalam pemodelan sistem rekomendasi, preprocessing data adalah langkah penting untuk memastikan data yang digunakan dalam training dan testing sudah bersih, terstruktur, dan relevan. Berikut adalah penjelasan teknik-teknik preprocessing yang dilakukan:
 
-1. Penyaringan Data:
+## 1. Penyaringan Data:
 ```
 anime_refined = anime[anime['episodes'] != 'Unknown'].copy()
 ```
 Data yang memiliki nilai 'Unknown' pada kolom episodes dihapus untuk memastikan hanya data valid yang diproses.
 
-2. Konversi Tipe Data:
+## 2. Konversi Tipe Data:
 ```
 anime_refined['episodes'] = anime_refined['episodes'].astype(int)
 ```
 Kolom episodes, yang sebelumnya dalam bentuk string, diubah menjadi tipe data integer. 
 
-3. Menghapus Missing Values:
+## 3. Menghapus Missing Values:
 ```
 anime_refined.dropna(inplace=True)
 ```
 Baris dengan nilai null dihapus untuk mencegah error saat pelatihan model.
 
-4. Kategorisasi Berdasarkan Episode:
+## 4. Kategorisasi Berdasarkan Episode:
 Fungsi ``` episode_category ``` digunakan untuk mengubah jumlah episode menjadi kategori seperti "very_short", "short", dst.
 
-5. Kategorisasi Berdasarkan Rating:
+## 5. Kategorisasi Berdasarkan Rating:
 Fungsi ``` rating_level ``` digunakan untuk mengelompokkan nilai rating menjadi kualitas seperti "terrible", "good", dst.
 
-6. Kategorisasi Berdasarkan Popularitas:
+## 6. Kategorisasi Berdasarkan Popularitas:
 Fungsi ``` popularity_segment ``` mengelompokkan anime berdasarkan jumlah anggota yang menontonnya menjadi kategori seperti "low", "moderate", "popular".
 
-7. Penggabungan Fitur:
+## 7. Penggabungan Fitur:
 ```
 anime_refined['combined_features'] = anime_refined['genre'] + ' ' + anime_refined['type'] + ' ' + anime_refined['size_category'] + ' ' + anime_refined['rating_category'] + ' ' + anime_refined['popularity_category']
 ```
 Fitur seperti genre, tipe, kategori ukuran, rating, dan popularitas digabung menjadi satu fitur komposit.
 
-8. Menghapus Kolom yang Tidak Dibutuhkan:
+## 8. Menghapus Kolom yang Tidak Dibutuhkan:
 ```
 anime_model_data = anime_refined.drop(['episodes', 'rating', 'members'], axis=1).reset_index(drop=True)
 ```
 Kolom-kolom yang tidak lagi diperlukan setelah dilakukan kategoriasi (seperti episodes, rating, dan members) dihapus dari dataset.
 
-9. Menghapus Duplikat:
+## 9. Menghapus Duplikat:
 ```
 anime.drop_duplicates(inplace=True)
 rating.drop_duplicates(inplace=True)
 ```
 Menghapus duplikat dari dataset untuk menghindari bias pada model.
 
-10. Mapping User dan Anime:
+## 10. Mapping User dan Anime:
 ```
 user_map = {uid: idx for idx, uid in enumerate(valid_ratings['user_id'].unique())}
 anime_map = {aid: idx for idx, aid in enumerate(valid_ratings['anime_id'].unique())}
 ```
 ID pengguna dan anime dimapping ke bentuk numerik untuk digunakan dalam algoritma berbasis matriks.
 
-11. Normalisasi Rating:
+## 11. Normalisasi Rating:
 ```valid_ratings['normalized'] = valid_ratings['rating'].apply(lambda r: (r - rmin) / (rmax - rmin))
 ```
 Rating dinormalisasi ke rentang 0-1 untuk memperlancar proses pembelajaran model.
 
-12. Pemisahan Data Latih dan Uji:
+## 12. Pemisahan Data Latih dan Uji:
 ```
 X_train, X_test, y_train, y_test = train_test_split(X_matrix, y_vector, test_size=0.2, random_state=42)
 ```
