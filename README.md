@@ -48,6 +48,7 @@ Dataset yang digunakan dalam proyek ini berasal dari [Anime Recommendations Data
 Berdasarkan hasil pengecekan data, kondisi data anime adalah:
 
 - **Missing Values**: Terdapat nilai yang hilang pada beberapa kolom, seperti pada kolom `type`, yang berarti jenis anime tidak diketahui untuk beberapa entri.
+- **Tipe Data**: Terdapat tipe data yang tidak sesuai pada kolom `episodes`.
 - **Duplikat**: Data anime bebas dari duplikat, sehingga setiap anime diidentifikasi secara unik dengan `anime_id`.
 
 ### 2. Data Rating
