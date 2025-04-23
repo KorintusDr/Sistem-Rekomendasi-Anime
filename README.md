@@ -71,10 +71,12 @@ Data yang memiliki nilai 'Unknown' pada kolom episodes dihapus. Ini bertujuan un
 
 2. Konversi Tipe Data:
 anime_refined['episodes'] = anime_refined['episodes'].astype(int)
-Kolom episodes, yang sebelumnya mungkin dalam bentuk string, diubah menjadi tipe data integer. Ini memungkinkan data ini dapat digunakan dalam analisis atau pemodelan numerik.
+Kolom episodes, yang sebelumnya mungkin dalam bentuk string, diubah menjadi tipe data integer. Hal ini dilakukan agar data dapat digunakan dalam analisis atau pemodelan numerik.
 
 3. Menghapus Missing Values:
+```
 anime_refined.dropna(inplace=True)
+```
 Baris yang mengandung nilai null dihapus. Ini penting untuk memastikan bahwa tidak ada data yang hilang dalam proses pelatihan model, karena sebagian besar algoritma machine learning tidak dapat menangani nilai yang hilang.
 
 4. Penyusunan Kategorisasi Berdasarkan Episode:
