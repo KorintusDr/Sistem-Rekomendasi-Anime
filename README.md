@@ -60,3 +60,59 @@ Berdasarkan hasil pengecekan data, kondisi data rating sebagai berikut:
 
 ---
 
+# 🧹 Data Preprocessing
+Dalam pemodelan sistem rekomendasi, preprocessing data adalah langkah penting untuk memastikan data yang digunakan dalam training dan testing sudah bersih, terstruktur, dan relevan. Berikut adalah penjelasan teknik-teknik preprocessing yang dilakukan:
+
+### 1. Penyaringan Data:
+```
+anime_refined = anime[anime['episodes'] != 'Unknown'].copy()
+```
+Data yang memiliki nilai 'Unknown' pada kolom episodes dihapus. Ini bertujuan untuk memastikan bahwa hanya data yang valid dan memiliki nilai numerik pada kolom episodes yang akan diproses lebih lanjut.
+
+2. Konversi Tipe Data:
+anime_refined['episodes'] = anime_refined['episodes'].astype(int)
+Kolom episodes, yang sebelumnya mungkin dalam bentuk string, diubah menjadi tipe data integer. Ini memungkinkan data ini dapat digunakan dalam analisis atau pemodelan numerik.
+
+3. Menghapus Missing Values:
+anime_refined.dropna(inplace=True)
+Baris yang mengandung nilai null dihapus. Ini penting untuk memastikan bahwa tidak ada data yang hilang dalam proses pelatihan model, karena sebagian besar algoritma machine learning tidak dapat menangani nilai yang hilang.
+
+4. Penyusunan Kategorisasi Berdasarkan Episode:
+Fungsi episode_category digunakan untuk mengklasifikasikan jumlah episode anime menjadi kategori seperti "very_short", "short", dan seterusnya berdasarkan rentang tertentu. Ini memungkinkan data numerik yang luas (jumlah episode) diubah menjadi kategori yang lebih mudah dianalisis dan dimanfaatkan dalam model.
+
+5. Penyusunan Kategorisasi Berdasarkan Rating:
+Fungsi rating_level mengklasifikasikan nilai rating anime ke dalam beberapa level kualitas, seperti "terrible", "good", dan sebagainya, berdasarkan rentang nilai yang ditentukan. Ini mengubah data rating numerik menjadi kategori.
+
+6. Penyusunan Kategorisasi Berdasarkan Popularitas:
+Fungsi popularity_segment mengkategorikan anime berdasarkan jumlah anggota yang menonton anime tersebut. Data numerik jumlah anggota ini dikelompokkan menjadi kategori seperti "low", "moderate", "popular", dan sebagainya.
+
+7. Penggabungan Fitur:
+anime_refined['combined_features'] = anime_refined['genre'] + ' ' + anime_refined['type'] + ' ' + anime_refined['size_category'] + ' ' + anime_refined['rating_category'] + ' ' + anime_refined['popularity_category']
+Fitur-fitur yang relevan seperti genre, tipe, kategori ukuran, rating, dan popularitas digabungkan menjadi satu kolom combined_features. Ini dapat digunakan untuk analisis lebih lanjut atau sebagai input ke dalam model rekomendasi berbasis konten.
+
+8. Menghapus Kolom yang Tidak Dibutuhkan:
+anime_model_data = anime_refined.drop(['episodes', 'rating', 'members'], axis=1).reset_index(drop=True)
+Kolom-kolom yang tidak lagi diperlukan setelah dilakukan kategoriasi (seperti episodes, rating, dan members) dihapus dari dataset. Ini bertujuan untuk mengurangi dimensi data dan memfokuskan hanya pada fitur yang relevan untuk pemodelan.
+
+9. Menghapus Duplikat:
+anime.drop_duplicates(inplace=True) dan rating.drop_duplicates(inplace=True)
+Duplikat pada dataset anime dan rating dihapus untuk menghindari pengaruh yang tidak diinginkan pada model. Duplikat dapat memperkenalkan bias dan menyebabkan model belajar hal yang salah.
+
+10. Penanganan Kode Pengguna dan Anime:
+user_map = {uid: idx for idx, uid in enumerate(valid_ratings['user_id'].unique())} dan anime_map = {aid: idx for idx, aid in enumerate(valid_ratings['anime_id'].unique())}
+Pengguna dan anime di-mapping ke ID numerik untuk memungkinkan pemodelan berbasis indeks numerik daripada ID asli, yang lebih mudah digunakan dalam algoritma berbasis matriks seperti collaborative filtering.
+
+11. Normalisasi Rating:
+valid_ratings['normalized'] = valid_ratings['rating'].apply(lambda r: (r - rmin) / (rmax - rmin))
+Normalisasi dilakukan pada rating sehingga berada dalam rentang 0 hingga 1. Ini diperlukan agar model dapat mengolah data dengan cara yang lebih terstandarisasi dan tidak ada nilai yang terlalu besar atau kecil yang bisa mendistorsi pembelajaran model.
+
+12. Pemisahan Data Latih dan Uji:
+X_train, X_test, y_train, y_test = train_test_split(X_matrix, y_vector, test_size=0.2, random_state=42)
+Dataset dibagi menjadi data pelatihan dan data pengujian (80% untuk pelatihan, 20% untuk pengujian). Pembagian ini penting untuk evaluasi model yang objektif dan untuk mencegah overfitting.
+
+
+
+
+
+
+
