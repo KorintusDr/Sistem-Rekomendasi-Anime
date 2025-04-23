@@ -1,10 +1,5 @@
-# 📺 Sistem Rekomendasi Anime
-Sistem ini dirancang untuk merekomendasikan anime kepada pengguna berdasarkan preferensi dan interaksi mereka sebelumnya. Proyek ini mencakup tahapan dari pemahaman bisnis hingga evaluasi model yang digunakan untuk memberikan rekomendasi yang relevan dan personal.
-
----
-
-# 📌 Project Overview
-Sistem rekomendasi telah menjadi tulang punggung berbagai platform hiburan modern seperti Netflix, YouTube, dan Spotify. Dalam proyek ini, kami membangun sistem rekomendasi anime menggunakan data dari platform MyAnimeList, memanfaatkan teknik filtering dan analisis data untuk memberikan saran anime kepada pengguna berdasarkan pola interaksi mereka.
+# 📺 Project Overview
+Industri hiburan Jepang, khususnya anime, mengalami pertumbuhan signifikan dalam dekade terakhir. Dengan ribuan judul yang tersedia dan terus bertambah setiap tahun, pengguna sering kali kesulitan untuk menemukan anime yang sesuai dengan preferensi mereka. Sistem rekomendasi dapat membantu pengguna menemukan anime yang relevan secara personal, meningkatkan pengalaman pengguna dan memperpanjang waktu keterlibatan mereka dalam platform.
 
 ---
 
