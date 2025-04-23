@@ -1,14 +1,12 @@
-# 🎌 Anime Recommendation System
-
-Sistem rekomendasi anime sederhana berbasis **Content-Based Filtering (CBF)** menggunakan **cosine similarity** terhadap genre anime. Proyek ini membantu pengguna menemukan anime yang mirip dengan yang sudah mereka sukai sebelumnya.
+# 📺 Sistem Rekomendasi Anime
+Sistem ini dirancang untuk merekomendasikan anime kepada pengguna berdasarkan preferensi dan interaksi mereka sebelumnya. Proyek ini mencakup tahapan dari pemahaman bisnis hingga evaluasi model yang digunakan untuk memberikan rekomendasi yang relevan dan personal.
 
 ---
 
-📺 Sistem Rekomendasi Anime
-Sistem ini dirancang untuk merekomendasikan anime kepada pengguna berdasarkan preferensi dan interaksi mereka sebelumnya. Proyek ini mencakup tahapan dari pemahaman bisnis hingga evaluasi model yang digunakan untuk memberikan rekomendasi yang relevan dan personal.
-
-📌 Project Overview
+# 📌 Project Overview
 Sistem rekomendasi telah menjadi tulang punggung berbagai platform hiburan modern seperti Netflix, YouTube, dan Spotify. Dalam proyek ini, kami membangun sistem rekomendasi anime menggunakan data dari platform MyAnimeList, memanfaatkan teknik filtering dan analisis data untuk memberikan saran anime kepada pengguna berdasarkan pola interaksi mereka.
+
+---
 
 ## 📁 Dataset
 
