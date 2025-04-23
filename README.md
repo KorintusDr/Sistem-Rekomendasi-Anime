@@ -24,18 +24,24 @@ Solusi yang diusulkan dalam proyek ini mencakup dua pendekatan utama, yaitu:
 
 ## 📁 Dataset
 
-Dataset yang digunakan berisi informasi mengenai anime dan genre-nya. Format CSV diharapkan memiliki kolom minimal berikut:
+Dataset yang digunakan dalam proyek ini berasal dari [Anime Recommendations Database](https://www.kaggle.com/datasets/CooperUnion/anime-recommendations-database) yang tersedia di Kaggle.
 
-- `anime_id`: ID unik anime
-- `name`: Nama anime
-- `genre`: Daftar genre yang dipisahkan koma
+### Variabel-variabel pada **Anime Recommendation System** dataset adalah sebagai berikut:
 
-Contoh isi:
+#### Anime.csv
+- **anime_id**: ID unik dari myanimelist.net yang mengidentifikasi anime.
+- **name**: Nama lengkap anime.
+- **genre**: Daftar genre yang dipisahkan koma untuk anime ini.
+- **type**: Jenis anime, seperti movie, TV, OVA, dll.
+- **episodes**: Jumlah episode dalam anime ini (1 jika tipe adalah movie).
+- **rating**: Rating rata-rata (skala 1 sampai 10) untuk anime ini.
+- **members**: Jumlah anggota komunitas yang tergabung dalam "grup" anime ini.
 
-| anime_id | name       | genre                               |
-|----------|------------|-------------------------------------|
-| 1        | Naruto     | Action, Adventure, Martial Arts     |
-| 2        | One Piece  | Action, Adventure, Comedy           |
+#### Rating.csv
+- **user_id**: ID pengguna yang dihasilkan secara acak sehingga tidak dapat diidentifikasi.
+- **anime_id**: ID anime yang telah diberi peringkat oleh pengguna.
+- **rating**: Peringkat (skala 1 sampai 10) yang diberikan oleh pengguna ini (-1 jika pengguna menontonnya tetapi tidak memberikan peringkat).
+
 
 ---
 
