@@ -157,9 +157,7 @@ Content-Based Filtering merekomendasikan anime berdasarkan kemiripan konten (fit
   - `stop_words='english'`: Menghapus kata-kata umum dalam bahasa Inggris.
 - **Cosine Similarity**: Untuk menghitung kemiripan antar anime.
 
-Hasil Top-5 Rekomendasi untuk Anime "Doraemon":
-
-## Rekomendasi untuk: Doraemon
+## Hasil Top-5 Rekomendasi untuk Anime "Doraemon":
 
 | No | Name                                          | Genre                                 | Type | Size Category | Rating Category | Popularity Category | Similarity |
 |----|-----------------------------------------------|---------------------------------------|------|---------------|-----------------|---------------------|------------|
