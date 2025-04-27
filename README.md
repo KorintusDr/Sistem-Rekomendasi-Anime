@@ -132,8 +132,6 @@ Dataset dibagi menjadi data pelatihan dan data pengujian (80% untuk pelatihan, 2
 ---
 
 # 🤖 Modeling
-Model yang digunakan:
-
 
 Pada bagian ini, dua pendekatan sistem rekomendasi yang digunakan adalah:
 
@@ -171,8 +169,6 @@ Hasil Top-5 Rekomendasi untuk Anime "Doraemon":
 | 4  | Doraemon Movie 31: Shin Nobita to Tetsujin Hei... | Adventure, Comedy, Fantasy, Kids, Shounen | Movie | very_short  | good            | low                 | 0.879014   |
 | 5  | Doraemon Movie 28: Nobita to Midori no Kyojin Den | Adventure, Comedy, Fantasy, Kids, Shounen | Movie | very_short  | good            | low                 | 0.879014   |
 
-Output yang dihasilkan adalah daftar anime yang paling mirip dengan anime Doraemon yang sesuai dengan judul yang diberikan. Kemiripan dihitung menggunakan cosine similarity, lalu hasilnya diurutkan dan ditampilkan 5 anime teratas beserta nilai kemiripan mereka.
-
 
 ## 2. Collaborative Filtering (CF)
 
@@ -197,11 +193,6 @@ Collaborative Filtering memberikan rekomendasi berdasarkan interaksi pengguna, d
 
 ### Hasil Top-10 Rekomendasi untuk User ID 17440:
 
-
-### Rekomendasi Anime untuk User ID 17440
-
-Berikut adalah rekomendasi anime yang diberikan untuk pengguna dengan **User ID 17440** berdasarkan model Collaborative Filtering:
-
 | Anime ID | Name                                      | Genre                                                         |
 |----------|-------------------------------------------|---------------------------------------------------------------|
 | 2762     | Igano Kabamaru                           | Adventure, Comedy, Romance, Shounen                           |
@@ -215,22 +206,6 @@ Berikut adalah rekomendasi anime yang diberikan untuk pengguna dengan **User ID 
 | 2727     | Sweet Valerian                           | Action, Comedy, Magic, School, Shoujo                          |
 | 4150     | Cosmos Pink Shock                        | Comedy, Parody, Sci-Fi, Space                                  |
 
-Rekomendasi ini dihasilkan berdasarkan anime yang sebelumnya diberi rating oleh pengguna dan memprediksi anime yang mungkin akan disukai berdasarkan pola preferensi pengguna lain yang serupa.
-
-
-
-
-
-
-
-
-
-
-
-
-1. Content-Based Filtering
-
-2. Collaborative Filtering (User-Based)
 
 # 📈 Evaluation
 Metrik evaluasi yang digunakan:
