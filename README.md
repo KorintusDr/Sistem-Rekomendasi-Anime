@@ -134,6 +134,62 @@ Dataset dibagi menjadi data pelatihan dan data pengujian (80% untuk pelatihan, 2
 # 🤖 Modeling
 Model yang digunakan:
 
+
+Pada bagian ini, dua pendekatan sistem rekomendasi yang digunakan adalah:
+
+## 1. Content-Based Filtering (CB)
+
+### Cara Kerja:
+
+Content-Based Filtering merekomendasikan anime berdasarkan kemiripan konten (fitur) antara anime yang pernah disukai/cari pengguna dan anime lain. Model ini fokus pada karakteristik item itu sendiri, bukan perilaku pengguna lain.
+
+### Tahapan:
+
+- Ekstrak fitur konten dari anime (genre, tipe, rating, ukuran, popularitas).
+
+- Gunakan teknik TF-IDF Vectorizer untuk merepresentasikan fitur dalam bentuk numerik.
+
+- Hitung kemiripan antar anime menggunakan Cosine Similarity.
+
+- Rekomendasikan anime yang paling mirip.
+
+### Parameter yang Digunakan:
+
+- **TfidfVectorizer**: Digunakan untuk mengubah teks menjadi representasi numerik.
+  - `stop_words='english'`: Menghapus kata-kata umum dalam bahasa Inggris.
+- **Cosine Similarity**: Untuk menghitung kemiripan antar anime.
+
+Hasil Top-5 Rekomendasi untuk Anime "Doraemon":
+
+## Rekomendasi untuk: Doraemon
+
+| No | Name                                          | Genre                                 | Type | Size Category | Rating Category | Popularity Category | Similarity |
+|----|-----------------------------------------------|---------------------------------------|------|---------------|-----------------|---------------------|------------|
+| 1  | TaoTao Ehonkan Sekai Doubutsu Banashi         | Adventure, Comedy, Fantasy, Kids      | TV   | very_short    | good            | low                 | 0.906548   |
+| 2  | Happy☆Lucky Bikkuriman                        | Adventure, Comedy, Fantasy, Kids      | TV   | very_short    | good            | low                 | 0.906548   |
+| 3  | Kekkaishi                                     | Adventure, Comedy, Fantasy, Shounen   | TV   | very_short    | good            | low                 | 0.898993   |
+| 4  | Doraemon Movie 31: Shin Nobita to Tetsujin Hei... | Adventure, Comedy, Fantasy, Kids, Shounen | Movie | very_short  | good            | low                 | 0.879014   |
+| 5  | Doraemon Movie 28: Nobita to Midori no Kyojin Den | Adventure, Comedy, Fantasy, Kids, Shounen | Movie | very_short  | good            | low                 | 0.879014   |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 1. Content-Based Filtering
 
 2. Collaborative Filtering (User-Based)
