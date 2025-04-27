@@ -171,13 +171,51 @@ Hasil Top-5 Rekomendasi untuk Anime "Doraemon":
 | 4  | Doraemon Movie 31: Shin Nobita to Tetsujin Hei... | Adventure, Comedy, Fantasy, Kids, Shounen | Movie | very_short  | good            | low                 | 0.879014   |
 | 5  | Doraemon Movie 28: Nobita to Midori no Kyojin Den | Adventure, Comedy, Fantasy, Kids, Shounen | Movie | very_short  | good            | low                 | 0.879014   |
 
+Output yang dihasilkan adalah daftar anime yang paling mirip dengan anime Doraemon yang sesuai dengan judul yang diberikan. Kemiripan dihitung menggunakan cosine similarity, lalu hasilnya diurutkan dan ditampilkan 5 anime teratas beserta nilai kemiripan mereka.
 
 
+## 2. Collaborative Filtering (CF)
+
+### Deskripsi Cara Kerja:
+
+Collaborative Filtering memberikan rekomendasi berdasarkan interaksi pengguna, dengan cara menemukan pola dari pengguna lain yang memiliki preferensi serupa. Model ini mencari kemiripan antar pengguna berdasarkan anime yang sudah mereka beri rating. Dengan demikian, rekomendasi didasarkan pada apa yang disukai oleh pengguna yang memiliki pola preferensi serupa.
+
+### Tahapan:
+
+1. Setiap pengguna dan anime direpresentasikan dalam bentuk embedding vektor berdimensi 50.
+2. Model **RecommenderNet** menghitung prediksi rating antara pengguna dan anime.
+3. Rekomendasi diberikan berdasarkan prediksi rating tertinggi untuk anime yang belum pernah diberi rating oleh pengguna.
+
+### Parameter yang Digunakan:
+
+- **Embedding Size** = 50
+- **Loss Function** = Mean Squared Error
+- **Optimizer** = Adam
+- **Batch Size** = 64
+- **Epochs** = 5
+- **Validation Split** = 0.2
+
+### Hasil Top-10 Rekomendasi untuk User ID 17440:
 
 
+### Rekomendasi Anime untuk User ID 17440
 
+Berikut adalah rekomendasi anime yang diberikan untuk pengguna dengan **User ID 17440** berdasarkan model Collaborative Filtering:
 
+| Anime ID | Name                                      | Genre                                                         |
+|----------|-------------------------------------------|---------------------------------------------------------------|
+| 2762     | Igano Kabamaru                           | Adventure, Comedy, Romance, Shounen                           |
+| 22693    | Lady Jewelpet                            | Fantasy, Magic, Romance, Shoujo                               |
+| 30870    | Ajin Part 3: Shougeki                    | Action, Horror, Mystery, Seinen, Supernatural                 |
+| 1116     | Junkers Come Here                        | Drama, Slice of Life                                           |
+| 751      | Bomberman Jetters                        | Action, Adventure, Comedy, Mystery, Sci-Fi, Shounen            |
+| 1549     | 1000-nen Joou: Queen Millennia           | Adventure, Drama, Fantasy, Sci-Fi                              |
+| 30651    | Itoshi no Muco                           | Comedy, Slice of Life                                          |
+| 17127    | Chokkyuu Hyoudai Robot Anime: Straight Title | Comedy, Mecha                                                |
+| 2727     | Sweet Valerian                           | Action, Comedy, Magic, School, Shoujo                          |
+| 4150     | Cosmos Pink Shock                        | Comedy, Parody, Sci-Fi, Space                                  |
 
+Rekomendasi ini dihasilkan berdasarkan anime yang sebelumnya diberi rating oleh pengguna dan memprediksi anime yang mungkin akan disukai berdasarkan pola preferensi pengguna lain yang serupa.
 
 
 
