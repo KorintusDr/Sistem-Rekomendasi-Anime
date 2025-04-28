@@ -47,7 +47,8 @@ Dataset yang digunakan dalam proyek ini berasal dari [Anime Recommendations Data
 
 Berdasarkan hasil pengecekan data, kondisi data anime adalah:
 
-- **Missing Values**: Terdapat nilai yang hilang pada beberapa kolom, seperti pada kolom `type`.
+- **Jumlah Data**: 12,294 entri dengan 7 kolom
+- **Missing Values**: Terdapat nilai yang hilang pada beberapa kolom, seperti pada kolom `type`, `genre`, dan `rating`.
 - **Tipe Data**: Terdapat tipe data yang tidak sesuai pada kolom `episodes`.
 - **Duplikat**: Data anime bebas dari duplikat, sehingga setiap anime diidentifikasi secara unik dengan `anime_id`.
 
@@ -55,6 +56,7 @@ Berdasarkan hasil pengecekan data, kondisi data anime adalah:
 
 Berdasarkan hasil pengecekan data, kondisi data rating sebagai berikut:
 
+- **Jumlah Data**: 7813737 entri dengan 3 kolom.
 - **Missing Values**: Terdapat missing pada kolom `rating`, yang perlu diatasi.
 - **Nilai Rating -1**: Sebanyak 633,459 entri memiliki rating -1.0, menunjukkan bahwa pengguna belum memberikan rating pada anime tersebut. Data ini perlu dihapus agar tidak mengganggu proses model rekomendasi.
 - **Duplikat**: Terdapat beberapa entri duplikat pada data rating, yang perlu dibersihkan agar tidak terjadi pengulangan informasi.
@@ -242,14 +244,14 @@ Collaborative Filtering memberikan rekomendasi berdasarkan interaksi pengguna, d
 # 📈 Evaluation
 Metrik evaluasi yang digunakan:
 
-1. Collaborative Filtering:
+## 1. Collaborative Filtering:
 Evaluasi menggunakan MAE (Mean Absolute Error) dan RMSE (Root Mean Squared Error).
 
 ![Image](https://github.com/user-attachments/assets/7c18a5d0-f8fc-4220-b461-7bd46f1bca4e)
 
 Dari gambar diatas menunjukkan hasil yang baik dengan MAE 0.1246 dan RMSE 0.1640, yang menunjukkan bahwa prediksi rating dari model cukup akurat. Model ini dapat digunakan untuk memberikan rekomendasi yang relevan kepada pengguna berdasarkan interaksi mereka sebelumnya.
 
-2. Content-Based Filtering:
+## 2. Content-Based Filtering:
 Evaluasi dilakukan dengan mengukur seberapa relevan rekomendasi yang diberikan berdasarkan urutan item yang disarankan, menggunakan metrik seperti NDCG (Normalized Discounted Cumulative Gain). NDCG digunakan untuk mengukur seberapa baik sistem mengurutkan item berdasarkan relevansi. Metrik ini memberikan bobot lebih besar pada item yang lebih relevan jika ditempatkan di posisi lebih atas dalam daftar rekomendasi. Nilai NDCG yang lebih tinggi menunjukkan sistem yang lebih efektif dalam memberikan rekomendasi yang relevan.
 
 ![Image](https://github.com/user-attachments/assets/38b0e467-d99f-4415-833e-ae0de41e9d22)
