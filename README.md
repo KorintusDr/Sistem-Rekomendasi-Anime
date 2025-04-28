@@ -51,7 +51,7 @@ Berdasarkan hasil pengecekan data, kondisi data anime adalah:
 - **Missing Values**: Terdapat nilai yang hilang pada beberapa kolom, seperti pada kolom `type`, `genre`, dan `rating`.
 - **Tipe Data**: Terdapat tipe data yang tidak sesuai pada kolom `episodes`.
 - **Duplikat**: Data anime bebas dari duplikat, sehingga setiap anime diidentifikasi secara unik dengan `anime_id`.
-- - **Outlier** Berdasarkan hasil statistik deskriptif, ditemukan bahwa rata-rata (mean) jumlah anggota (members) adalah 18,071  sedangkan (max) jumlah anggota adalah 1.013.917. Hal ini mengindikasikan adanya outlier pada data, dimana anime dengan jumlah anggota yang jauh lebih tinggi dari rata-rata dapat dianggap sebagai outlier.
+- **Outlier** Berdasarkan hasil statistik deskriptif, ditemukan bahwa rata-rata (mean) jumlah anggota (members) adalah 18,071  sedangkan (max) jumlah anggota adalah 1.013.917. Hal ini mengindikasikan adanya outlier pada data, dimana anime dengan jumlah anggota yang jauh lebih tinggi dari rata-rata dapat dianggap sebagai outlier.
 
 ### 2. Data Rating
 
