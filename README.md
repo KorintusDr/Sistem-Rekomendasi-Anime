@@ -91,39 +91,73 @@ Fungsi ``` rating_level ``` digunakan untuk mengelompokkan nilai rating menjadi 
 ## 6. Kategorisasi Berdasarkan Popularitas:
 Fungsi ``` popularity_segment ``` mengelompokkan anime berdasarkan jumlah anggota yang menontonnya menjadi kategori seperti "low", "moderate", "popular".
 
-## 7. Penggabungan Fitur:
+## 7. Penggabungan Genre
+
+```
+anime_refined['genre'] = anime_refined['genre'].apply(lambda x: ' '.join(x.split(', ')))
+```
+Genre anime yang semula dipisahkan dengan koma diubah menjadi format spasi, untuk mempermudah proses ekstraksi fitur.
+
+## 8. Penggabungan Fitur:
 ```
 anime_refined['combined_features'] = anime_refined['genre'] + ' ' + anime_refined['type'] + ' ' + anime_refined['size_category'] + ' ' + anime_refined['rating_category'] + ' ' + anime_refined['popularity_category']
 ```
 Fitur seperti genre, tipe, kategori ukuran, rating, dan popularitas digabung menjadi satu fitur komposit.
 
-## 8. Menghapus Kolom yang Tidak Dibutuhkan:
+## 9. Menghapus Kolom yang Tidak Dibutuhkan:
 ```
 anime_model_data = anime_refined.drop(['episodes', 'rating', 'members'], axis=1).reset_index(drop=True)
 ```
 Kolom-kolom yang tidak lagi diperlukan setelah dilakukan kategoriasi (seperti episodes, rating, dan members) dihapus dari dataset.
 
-## 9. Menghapus Duplikat:
+## 10. Menghapus Duplikat:
 ```
 anime.drop_duplicates(inplace=True)
 rating.drop_duplicates(inplace=True)
 ```
 Menghapus duplikat dari dataset untuk menghindari bias pada model.
 
-## 10. Mapping User dan Anime:
+## 11. Validasi dan Pembersihan Data Rating
+```
+valid_ratings = rating[rating['rating'] >= 0].dropna().drop_duplicates().copy()
+```
+Memastikan hanya rating yang valid (≥ 0) dan tidak null yang digunakan.
+
+## 12. Mapping User dan Anime:
 ```
 user_map = {uid: idx for idx, uid in enumerate(valid_ratings['user_id'].unique())}
 anime_map = {aid: idx for idx, aid in enumerate(valid_ratings['anime_id'].unique())}
 ```
 ID pengguna dan anime dimapping ke bentuk numerik untuk digunakan dalam algoritma berbasis matriks.
 
-## 11. Normalisasi Rating:
+## 13. Normalisasi Rating:
 ```
 valid_ratings['normalized'] = valid_ratings['rating'].apply(lambda r: (r - rmin) / (rmax - rmin))
 ```
 Rating dinormalisasi ke rentang 0-1 untuk memperlancar proses pembelajaran model.
 
-## 12. Pemisahan Data Latih dan Uji:
+## 14. Ekstraksi Fitur dengan TF-IDF
+```
+tfidf = TfidfVectorizer()
+tfidf_matrix = tfidf.fit_transform(anime_model_data['combined_features'])
+```
+
+Ekstraksi fitur dilakukan menggunakan metode TF-IDF (Term Frequency-Inverse Document Frequency). TF-IDF digunakan untuk mengukur seberapa penting sebuah kata dalam satu dokumen relatif terhadap kumpulan dokumen lain.
+
+TF-IDF sangat berguna dalam sistem rekomendasi berbasis konten karena mampu mengidentifikasi kata-kata yang paling mewakili karakteristik anime berdasarkan kolom combined_features.
+
+### Penjelasan singkat:
+
+- TF (Term Frequency): Seberapa sering sebuah kata muncul dalam sebuah dokumen.
+
+- IDF (Inverse Document Frequency): Seberapa unik sebuah kata di seluruh dokumen.
+
+- TF-IDF menghasilkan skor untuk setiap kata, dan skor ini digunakan untuk membangun matriks fitur yang mewakili setiap anime.
+
+Penggunaan dalam proyek ini: TF-IDF digunakan untuk menghitung kemiripan antar anime berdasarkan fitur gabungan (combined_features) yang sudah dibuat sebelumnya. Semakin tinggi nilai TF-IDF untuk dua anime, semakin mirip karakteristik kedua anime tersebut.
+
+
+## 15. Pemisahan Data Latih dan Uji:
 ```
 X_train, X_test, y_train, y_test = train_test_split(X_matrix, y_vector, test_size=0.2, random_state=42)
 ```
