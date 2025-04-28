@@ -156,7 +156,7 @@ TF-IDF sangat berguna dalam sistem rekomendasi berbasis konten karena mampu meng
 
 - TF-IDF menghasilkan skor untuk setiap kata, dan skor ini digunakan untuk membangun matriks fitur yang mewakili setiap anime.
 
-Penggunaan dalam proyek ini: TF-IDF digunakan untuk menghitung kemiripan antar anime berdasarkan fitur gabungan (combined_features) yang sudah dibuat sebelumnya. Semakin tinggi nilai TF-IDF untuk dua anime, semakin mirip karakteristik kedua anime tersebut.
+TF-IDF digunakan untuk menghitung kemiripan antar anime berdasarkan fitur gabungan (combined_features) yang sudah dibuat sebelumnya. Semakin tinggi nilai TF-IDF untuk dua anime, semakin mirip karakteristik kedua anime tersebut.
 
 
 ## 15. Pemisahan Data Latih dan Uji:
