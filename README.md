@@ -250,8 +250,6 @@ Evaluasi menggunakan MAE (Mean Absolute Error) dan RMSE (Root Mean Squared Error
 Dari gambar diatas menunjukkan hasil yang baik dengan MAE 0.1246 dan RMSE 0.1640, yang menunjukkan bahwa prediksi rating dari model cukup akurat. Model ini dapat digunakan untuk memberikan rekomendasi yang relevan kepada pengguna berdasarkan interaksi mereka sebelumnya.
 
 2. Content-Based Filtering:
-Karena CBF tidak menggunakan data eksplisit dari pengguna, maka evaluasi seperti RMSE (Root Mean Squared Error) atau MAE (Mean Absolute Error) tidak bisa digunakan langsung di sini. Sebagai gantinya, evaluasi bisa dilakukan dengan uji coba dan validasi hasil rekomendasi secara manual seperti yang terlihat pada gambar dibawah ini:
+Evaluasi dilakukan dengan mengukur seberapa relevan rekomendasi yang diberikan berdasarkan urutan item yang disarankan, menggunakan metrik seperti NDCG (Normalized Discounted Cumulative Gain). NDCG digunakan untuk mengukur seberapa baik sistem mengurutkan item berdasarkan relevansi. Metrik ini memberikan bobot lebih besar pada item yang lebih relevan jika ditempatkan di posisi lebih atas dalam daftar rekomendasi. Nilai NDCG yang lebih tinggi menunjukkan sistem yang lebih efektif dalam memberikan rekomendasi yang relevan.
 
-![Image](https://github.com/user-attachments/assets/cbcb9104-f76d-4ff6-ae2d-f64295e78b1e)
-
-Output yang dihasilkan adalah daftar anime yang paling mirip dengan anime Doraemon yang sesuai dengan judul yang diberikan. Kemiripan dihitung menggunakan cosine similarity, lalu hasilnya diurutkan dan ditampilkan 5 anime teratas beserta nilai kemiripan mereka. Berdasarkan ouput tersebut maka model dianggap berhasil secara konseptual.
+![Image](https://github.com/user-attachments/assets/38b0e467-d99f-4415-833e-ae0de41e9d22)
